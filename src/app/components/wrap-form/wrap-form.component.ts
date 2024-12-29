@@ -177,7 +177,6 @@ export class WrapFormComponent implements OnInit {
       selectedEvents: this.selectedEvents.map((eventId) => ({ eventId })),
       customEvents: this.customEvents,
     };
-    console.log('Form Data:', formData);
     // Handle submission
     this.apiService.createSubmission(formData).subscribe({
       next: (response) => {

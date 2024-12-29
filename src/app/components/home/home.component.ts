@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
       .subscribe({
         next: (events: TrendingEvent[]) => {
           this.trendingEvents = events; // Set the trending events
-          console.log(this.trendingEvents);
         },
         error: (err) => {
           console.error('Error fetching trending events:', err); // Log any errors

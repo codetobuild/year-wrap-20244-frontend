@@ -13,6 +13,5 @@ export class AppComponent {
   title = 'year-wrap-2024-frontend';
 
   constructor() {
-    console.log('App Env variables:', environment);
   }
 }

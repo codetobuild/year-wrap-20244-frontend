@@ -110,7 +110,6 @@ export class SummaryComponent implements OnInit {
           this.generatedImageUrl$.next(
             `${environment.imageBaseUrl}/${imagePath}`
           );
-          console.log(this.generatedImageUrl$);
         } else {
           this.generateImageError = 'Failed to generate image';
         }
