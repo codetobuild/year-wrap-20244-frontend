@@ -1,0 +1,97 @@
+<main>
+    <div class="page-header">
+        <h1>Create Your 2024 Wrap</h1>
+        <p class="subtitle">Capture your best 2024 moments!</p>
+    </div>
+
+    <form #wrapForm="ngForm" (ngSubmit)="onSubmit()" class="wrap-form">
+        <div class="username-section">
+            <input type="text" id="username" [(ngModel)]="temporaryUsername" name="username" #usernameInput="ngModel"
+                placeholder="What should we call you?" class="username-input" required focus>
+            <p class="form_error_message" *ngIf="(usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)) || 
+                       (usernameInput.invalid && wrapForm.submitted)">
+                Name must not be blank
+            </p>
+        </div>
+
+        <!-- Categories and Events -->
+        <div class="categories-container">
+            <div *ngFor="let category of groupedEvents | keyvalue; let first = first" class="category-section">
+                <div class="category-header" (click)="toggleCategory(category.key)"
+                    [class.active]="expandedCategory === category.key">
+                    <h2>
+                        <fa-icon [icon]="expandedCategory === category.key ? faChevronUp : faChevronDown">
+                        </fa-icon>
+                        {{ category.key }}
+                    </h2>
+                </div>
+
+                <div class="category-content" [class.expanded]="expandedCategory === category.key">
+                    <div class="events-list">
+                        <!-- Show first 5 or all events if showMore is true -->
+                        <div *ngFor="let event of getVisibleEvents(category.value, category.key)" class="event-item">
+                            <label class="event-label">
+                                <input type="checkbox" [checked]="isEventSelected(event._id)"
+                                    (change)="toggleEvent(event, $event)">
+                                <div class="event-details">
+                                    <span class="event-title">{{ event.title }}</span>
+                                    <span class="event-points">+{{ event.points }} points</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Show More button -->
+                        <button type="button" *ngIf="category.value.length > 5 && !expandedCategories[category.key]"
+                            (click)="showMoreEvents(category.key)" class="show-more-btn">
+                            <fa-icon [icon]="faChevronDown"></fa-icon>
+                            Show ({{ category.value.length - 5 }} more)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Custom Events Section (at the bottom) -->
+        <div class="custom-events-section">
+            <h3>Add custom moments</h3>
+            <div class="custom-events-container">
+                <div *ngFor="let event of customEvents" class="custom-event-item">
+                    <label class="event-label">
+                        <input type="checkbox" [checked]="true" disabled>
+                        <div class="event-details">
+                            <span class="event-title">{{ event.title }}</span>
+                        </div>
+                        <!-- <span class="custom-event-title">{{ event.title }}</span>
+                        <span class="custom-event-points">+{{ event.points }} points</span> -->
+                        <button type="button" class="remove-event-btn" (click)="removeCustomEvent(event.id)">
+                            <fa-icon [icon]="faTrash"></fa-icon>
+                        </button>
+                    </label>
+                </div>
+
+                <!-- Add Custom Event Input -->
+                <div class="add-custom-event">
+                    <input type="text" [(ngModel)]="newCustomEvent.title" name="newEventTitle"
+                        placeholder="Enter your own life moments" class="custom-event-input">
+                    <button type="button" class="add-event-btn" (click)="addCustomEvent()"
+                        [disabled]="!newCustomEvent.title || !newCustomEvent.points">
+                        <fa-icon [icon]="faPlus"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Form Actions -->
+        <div class="form-actions">
+            <div class="points-summary">
+                Total Points: {{ calculateTotalPoints() }}
+            </div>
+            <div class="action-buttons">
+                <button type="button" (click)="resetForm()" class="reset-btn">
+                    Reset
+                </button>
+                <button type="submit" [disabled]="!selectedEvents.length" class="submit-btn">
+                    {{submitLoading ? "Submitting...": "Submit Wrap"}}
+                </button>
+            </div>
+        </div>
+    </form>
+</main>

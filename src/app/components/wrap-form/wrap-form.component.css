@@ -1,0 +1,299 @@
+.wrap-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+.page-header {
+  max-width: 800px;
+  margin: 0 auto var(--space-8);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: var(--font-4xl);
+  color: #6e44ff;
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+.category-section {
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.category-header {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.category-header.active {
+  background: var(--primary-50);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-header h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--font-lg);
+  color: var(--text-primary);
+}
+
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.category-content.expanded {
+  max-height: 2000px;
+}
+
+.events-list {
+  padding: var(--space-4);
+}
+
+.event-item {
+  margin-bottom: var(--space-3);
+}
+
+.event-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.event-label:hover {
+  background: var(--bg-secondary);
+}
+
+.event-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.event-points {
+  color: var(--primary-600);
+  font-weight: 500;
+}
+
+.show-more-btn {
+  width: 100%;
+  padding: var(--space-2);
+  margin-top: var(--space-2);
+  border: 1px dashed var(--border-color);
+  background: transparent;
+  color: var(--primary-800);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.show-more-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--primary-600);
+}
+
+.form-actions {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: var(--space-4);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-6);
+}
+
+.points-summary {
+  font-weight: 500;
+  color: var(--primary-600);
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--space-4);
+}
+.form_error_message {
+  color: red;
+}
+
+.submit-btn,
+.reset-btn {
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.submit-btn {
+  background: var(--primary-600);
+  color: white;
+  border: none;
+}
+
+.submit-btn:hover {
+  background: var(--primary-700);
+}
+
+.submit-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.reset-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Custom checkbox styles */
+.event-label input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc; /* Lighter border for unchecked */
+  border-radius: 4px; /* Slightly reduced border radius for checkbox look */
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  background: transparent; /* Transparent background to show border */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Checked state */
+.event-label input[type="checkbox"]:checked {
+  background-color: var(--success); /* or your green color variable */
+  border-color: var(--success);
+}
+
+/* Custom checkmark using pseudo-element */
+.event-label input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style for selected event's points */
+.event-label input[type="checkbox"]:checked ~ .event-details .event-title,
+.event-label input[type="checkbox"]:checked ~ .event-details .event-points {
+  color: var(--success);
+  font-weight: bold;
+}
+.username-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-8);
+}
+
+.username-input {
+  max-width: 30ch;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid #c8b1e4;
+  border-radius: var(--radius-md);
+  font-size: var(--font-base);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition-base);
+}
+.username-input:focus {
+  outline: none;
+  border: 2px solid #7161ef;
+}
+
+.custom-events-section {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-color);
+}
+
+.custom-events-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-event-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.add-custom-event {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.custom-event-input {
+  flex: 1;
+  padding: var(--space-2);
+  border: 2px solid #c8b1e4;
+  border-radius: var(--radius-md);
+}
+.custom-event-input:focus {
+  outline: none;
+  border: 2px solid #7161ef;
+}
+.points-input {
+  width: 80px;
+  padding: var(--space-2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.remove-event-btn,
+.add-event-btn {
+  padding: var(--space-2);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.remove-event-btn {
+  color: var(--error);
+}
+
+.add-event-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  background: var(--primary-600);
+  color: white;
+}
+
+.add-event-btn:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}

@@ -1,0 +1,86 @@
+<div class="explore-container">
+    <!-- Search Section -->
+    <div class="search-section">
+        <h1>Discover Amazing Wraps</h1>
+        <p class="subtitle">Enter a share code to view someone's 2024 journey</p>
+
+        <div class="search-box">
+            <div class="search-box-border">
+                <input type="text" [formControl]="searchControl" placeholder="Enter share code (e.g., ABC123)"
+                    class="search-input">
+                <button class="search-button" (click)="searchWrap()" [disabled]="!searchControl.value">
+                    <fa-icon [icon]="icons.faSearch"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+        <div class="loader"></div>
+        <p>Fetching wrap details...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error-state">
+        <p>{{ error }}</p>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+        <p>Ready to create your own amazing wrap?</p>
+        <button class="cta-button" (click)="navigateToWrap()">
+            <fa-icon [icon]="icons.faRocket"></fa-icon>
+            Start Your 2024 Wrap Journey
+        </button>
+    </div>
+
+    <!-- Wrap Display -->
+    <div *ngIf="submission" class="wrap-display">
+        <div class="wrap-header">
+            <button class="close-button" (click)="clearSubmission()">
+                <fa-icon [icon]="icons.faTimes"></fa-icon>
+            </button>
+        </div>
+
+        <!-- Wrap Content (Similar to Summary Page) -->
+        <div class="stats-card">
+            <div class="stat-item">
+                <span class="stat-value">{{ calculateTotalPoints() }}</span>
+                <span class="stat-label">Total Points</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">
+                    {{ submission.selectedEvents.length + submission.customEvents.length }}
+                </span>
+                <span class="stat-label">Events Achieved</span>
+            </div>
+        </div>
+
+        <!-- Events List -->
+        <!-- Events List -->
+        <div class="events-container">
+            <h2>Your 2024 Proud Moments 🥳</h2>
+
+            <!-- Selected Events -->
+            <div class="events-section">
+                <div *ngFor="let event of submission.selectedEvents;" class="event-item">
+                    <fa-icon [icon]="icons.faSquareCheck" class="event-checkbox"></fa-icon>
+                    <span class="event-title">{{ event.eventId.title }}</span>
+                    <span class="event-points">+{{ event.eventId.points }}</span>
+                </div>
+            </div>
+
+            <!-- Custom Events -->
+            <div *ngIf="submission.customEvents.length > 0" class="events-section">
+                <h3 class="custom_title">Custom Achievements</h3>
+                <div *ngFor="let event of submission.customEvents" class="event-item">
+                    <fa-icon [icon]="icons.faSquareCheck" class="event-checkbox"></fa-icon>
+                    <span class="event-title">{{ event.title }}</span>
+                    <span class="event-points">+{{ event.points }}</span>
+                </div>
+            </div>
+        </div><!-- ... Your existing events list rendering ... -->
+    </div>
+
+</div>

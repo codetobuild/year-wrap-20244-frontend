@@ -1,0 +1,104 @@
+<main class="home">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="title">Capture Your 2024 Journey</h1>
+            <p class="subtitle">Transform your year's moments into a beautiful wrap. </p>
+            <p class="subtitle subtitle-wrapped">1000+ others have already created their wrap!</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" (click)="navigateToWrap()">
+                    Start Your Wrap now
+                    <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button>
+                <button class="btn btn-secondary" (click)="navigateToExplore()">
+                    Explore Others' Wraps
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <!-- <div class="hero-image">
+            <img src="assets/hero-image.svg" alt="Year Wrap Illustration" />
+        </div> -->
+    </section>
+
+    <!-- Trending Events Section -->
+    <section class="trending" *ngIf="trendingEvents.length>0">
+        <div class="section-title-container">
+            <h2 class="section-title">
+                <fa-icon [icon]="faChartLine"></fa-icon>
+                Trending Events
+            </h2>
+            <p class="section-subtitle">See what others are celebrating in 2024</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-fade-left"></div>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <!-- First set of cards -->
+                    <div class="trend-card" *ngFor="let event of trendingEvents">
+                        <div class="card-content">
+                            <p>{{ event.title }}</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="trend-card" *ngFor="let event of trendingEvents">
+                        <div class="card-content">
+                            <p>{{ event.title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-fade-right"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Why Create Your Wrap?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <span class="feature-icon">
+                    <fa-icon [icon]="faCalendarCheck"></fa-icon>
+                </span>
+                <h3>Reflect & Celebrate</h3>
+                <p>Look back at your achievements and milestone moments</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">
+                    <fa-icon [icon]="faPalette"></fa-icon>
+                </span>
+                <h3>Beautiful Design</h3>
+                <p>Choose from stunning templates to showcase your year</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">
+                    <fa-icon [icon]="faShare"></fa-icon>
+                </span>
+                <h3>Easy Sharing</h3>
+                <p>Share your wrap with friends and family instantly</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <h2 class="ready_botton_h2">Ready to Create Your 2024 Wrap?</h2>
+        <button class="btn btn-primary" (click)="navigateToWrap()">
+            Start Now
+            <fa-icon [icon]="faArrowRight"></fa-icon>
+        </button>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <h2 class="section-title">Share Your Journey</h2>
+        <div class="social-icons">
+            <fa-icon [icon]="faTwitter" class="social-icon twitter"></fa-icon>
+            <fa-icon [icon]="faFacebook" class="social-icon facebook"></fa-icon>
+            <fa-icon [icon]="faInstagram" class="social-icon instagram"></fa-icon>
+        </div>
+    </section>
+</main>

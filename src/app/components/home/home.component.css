@@ -1,0 +1,303 @@
+/* Reset and Base */
+.home {
+  min-height: 100vh;
+  padding: var(--space-4);
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #6e44ff;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: max-content;
+    align-items: center;
+    place-content: center;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #6e44ff;
+}
+
+.subtitle {
+  font-size: var(--font-lg);
+  color: darkslategray;
+  margin-bottom: var(--space-6);
+}
+
+.subtitle-wrapped {
+  font-weight: 500;
+  color: #7161ef;
+}
+.cta-buttons {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Features Section */
+.features {
+  padding: var(--space-12) 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: var(--space-8) auto;
+}
+
+.feature {
+  text-align: center;
+  padding: var(--space-4);
+}
+
+.feature-icon {
+  font-size: var(--font-3xl);
+  margin-bottom: var(--space-4);
+  color: var(--primary-600);
+}
+
+/* Social Proof Section */
+.social-proof {
+  text-align: center;
+  padding: var(--space-8) 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.social-icon {
+  font-size: var(--font-2xl);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+.twitter {
+  color: #000;
+}
+
+.facebook {
+  color: rgb(2, 133, 255);
+}
+.instagram {
+  color: #ff1fb4;
+}
+.social-icon:hover {
+  color: var(--primary-600);
+  transform: translateY(-2px);
+}
+
+/* Bottom CTA */
+.bottom-cta {
+  text-align: center;
+  padding: var(--space-12) 0;
+  background-image: linear-gradient(to top, #d9d8ff 0%, #ffe9d5 100%);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-12);
+}
+
+.bottom-cta h2 {
+  margin-bottom: var(--space-6);
+}
+
+/* Buttons */
+.btn {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  color: black;
+  font-size: 1.3em;
+}
+
+.btn-primary:hover {
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 2px solid;
+  border-color: var(--btn-primary-bg);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+}
+
+.section-title {
+  text-align: center;
+  font-weight: 600;
+}
+/* Font Awesome Icon Styles */
+.section-title fa-icon {
+  margin-right: var(--space-2);
+  color: var(--primary-600);
+}
+
+.section-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn fa-icon {
+  margin-left: var(--space-2);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover fa-icon {
+  transform: translateX(4px);
+}
+
+.ready_botton_h2 {
+  font-weight: 500;
+  /* color: white; */
+}
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--font-2xl);
+  }
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .carousel-fade-left,
+  .carousel-fade-right {
+    width: 40px;
+  }
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 100%;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll 15s linear infinite;
+  width: max-content; /* Changed from fit-content */
+}
+
+/* Key change: Use transform3d for smoother animation */
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Add will-change for better performance */
+.trend-card {
+  flex: 0 0 280px;
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+}
+/* Improved fade edges */
+.carousel-fade-left,
+.carousel-fade-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 70px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-fade-left {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.carousel-fade-right {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

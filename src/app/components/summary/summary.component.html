@@ -1,0 +1,109 @@
+<!-- wrap-summary.component.html -->
+<div class="summary-container">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+        <div class="loader"></div>
+        <p>Loading your amazing wrap...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error-state">
+        <h2>Oops! 🤔</h2>
+        <p>{{ error }}</p>
+        <button class="primary-button" (click)="createNewWrap()">
+            Create Your Own Wrap
+            <fa-icon [icon]="icons.faRocket"></fa-icon>
+        </button>
+    </div>
+
+    <!-- Success State -->
+    <div *ngIf="!isLoading && !error && submission" class="wrap-content">
+        <!-- Header -->
+        <div class="wrap-header">
+            <h1>Your 2024 Wrap is Ready! 🎉</h1>
+            <p class="username">Wrapped by <span class="username_text">{{ submission.temporaryUsername }}</span></p>
+        </div>
+
+        <!-- Stats Summary -->
+        <div class="stats-card">
+            <div class="stat-item">
+                <span class="stat-value">{{ animatedTotalPoints }}</span>
+                <span class="stat-label">Total Points</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">{{ animatedEventsCount }}</span>
+                <span class="stat-label">Total Events</span>
+            </div>
+        </div>
+
+        <div class="share-actions">
+            <button class="share-button" (click)="copyToClipboard(shareUrl, 'url')">
+                <span class="button-content" [ngClass]="{'copied': copiedType === 'url'}">
+                    <fa-icon [icon]="icons.faCopy"></fa-icon>
+                    {{copiedType === 'url' ? "Copied!" : "Copy link to share"}}
+                </span>
+            </button>
+
+            <button class="share-button" (click)="copyToClipboard(shareCode, 'code')">
+                <span class="button-content" [ngClass]="{'copied': copiedType === 'code'}">
+                    <fa-icon [icon]="icons.faCopy"></fa-icon>
+                    {{copiedType === 'code' ? "Copied!" : "Copy Code(" + shareCode+ ")"}}
+                </span>
+            </button>
+        </div>
+        <!-- Events List -->
+        <div class="events-container">
+            <h2>Your 2024 Proud Moments 🥳</h2>
+
+            <!-- Selected Events -->
+            <div class="events-section">
+                <div *ngFor="let event of submission.selectedEvents;" class="event-item">
+                    <fa-icon [icon]="icons.faSquareCheck" class="event-checkbox"></fa-icon>
+                    <span class="event-title">{{ event.eventId.title }}</span>
+                    <span class="event-points">+{{ event.eventId.points }}</span>
+                </div>
+            </div>
+
+            <!-- Custom Events -->
+            <div *ngIf="submission.customEvents.length > 0" class="events-section">
+                <h3 class="custom_title">Custom Achievements</h3>
+                <div *ngFor="let event of submission.customEvents" class="event-item">
+                    <fa-icon [icon]="icons.faSquareCheck" class="event-checkbox"></fa-icon>
+                    <span class="event-title">{{ event.title }}</span>
+                    <span class="event-points">+{{ event.points }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions-container">
+            <!-- Generate Image Button -->
+            <button class="action-button" (click)="generateImage()" [disabled]="generateImageLoading"
+                [class.loading]="generateImageLoading">
+                <fa-icon [icon]="icons.faImage"></fa-icon>
+                {{ generateImageLoading ? 'Generating image...' : 'Generate wrap image'}}
+
+            </button>
+
+            <!-- Generated Image Preview -->
+            <div class="preview-container" *ngIf="(generatedImageUrl$ | async) as generatedImageUrl">
+                <div class="image-preview">
+                    <img [src]="generatedImageUrl" alt="Your 2024 Wrap Image">
+                    <div class="preview-actions">
+                        <button class="preview-action-btn remove" (click)="removeGeneratedImage()">
+                            <fa-icon [icon]="icons.faXmark"></fa-icon>
+                        </button>
+                        <button class="preview-action-btn download" (click)="downloadImage(generatedImageUrl)">
+                            <fa-icon [icon]="icons.faDownload"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Create New Button -->
+            <button class="create-new-button" (click)="createNewWrap()">
+                Create Another Wrap
+                <fa-icon [icon]="icons.faArrowRight"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
