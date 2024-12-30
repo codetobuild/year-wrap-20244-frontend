@@ -54,6 +54,7 @@ export class WrapFormComponent implements OnInit {
   faChevronUp = faChevronUp;
   faPlus = faPlus;
   faTrash = faTrash; // Import this icon
+  adultSlug = 'adult-18-plus-section';
 
   constructor(
     private apiService: ApiService,
@@ -102,6 +103,13 @@ export class WrapFormComponent implements OnInit {
   }
 
   toggleCategory(categoryName: string) {
+    let isAdult = false;
+    if (categoryName.includes('Adult') || categoryName.includes('adult')) {
+      isAdult = confirm('Are you 18 years or older?');
+      if (!isAdult) {
+        return;
+      }
+    }
     this.expandedCategory =
       this.expandedCategory === categoryName ? null : categoryName;
   }
