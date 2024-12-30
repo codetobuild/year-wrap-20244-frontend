@@ -59,7 +59,7 @@ export class ExploreComponent implements OnInit {
       },
       error: (error) => {
         this.submission = null;
-        this.error = '🥲 Could not find wrap with this code. Please try again.';
+        this.error = '🥲 Couldn\'t find wrap with this code. Please try again.';
         this.isLoading = false;
         this.clearSubmission();
       },

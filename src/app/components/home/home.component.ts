@@ -5,6 +5,7 @@ import {
   faArrowRight,
   faChartLine,
   faShare,
+  faImage,
   faPalette,
   faTrophy,
   faSearch,
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
   faFacebook = faFacebook;
   faInstagram = faInstagram;
   faLinkedin = faLinkedin;
+  faImage = faImage;
   trendingEvents: TrendingEvent[] = [
     { title: 'Traveled solo for the first time', _id: 'faPlaneDeparture' },
     { title: 'Adopted a healthier lifestyle', _id: 'faHeartPulse' },
