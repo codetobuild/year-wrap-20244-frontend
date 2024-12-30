@@ -10,6 +10,7 @@ import {
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfettiService } from '../../services/confetti.service';
 
 @Component({
   selector: 'app-explore',
@@ -27,7 +28,8 @@ export class ExploreComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private confettiService: ConfettiService
   ) {}
 
   ngOnInit() {
@@ -53,11 +55,11 @@ export class ExploreComponent implements OnInit {
       next: (response) => {
         this.submission = response.data;
         this.isLoading = false;
+        this.confettiService.triggerExplosion();
       },
       error: (error) => {
         this.submission = null;
-        this.error =
-          '😟 Could not find wrap with this code. Please check and try again.';
+        this.error = '🥲 Could not find wrap with this code. Please try again.';
         this.isLoading = false;
         this.clearSubmission();
       },

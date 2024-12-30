@@ -13,8 +13,10 @@ import {
 import {
   faTwitter,
   faFacebook,
+  faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
+
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 import { ApiResponse, TrendingEvent } from '../../models/api.types';
@@ -38,6 +40,7 @@ export class HomeComponent implements OnInit {
   faTwitter = faTwitter;
   faFacebook = faFacebook;
   faInstagram = faInstagram;
+  faLinkedin = faLinkedin;
   trendingEvents: TrendingEvent[] = [
     { title: 'Traveled solo for the first time', _id: 'faPlaneDeparture' },
     { title: 'Adopted a healthier lifestyle', _id: 'faHeartPulse' },
@@ -70,5 +73,13 @@ export class HomeComponent implements OnInit {
 
   navigateToExplore() {
     this.router.navigate(['/explore']);
+  }
+
+  shareOnSocial(url: string) {
+    const width = 600;
+    const height = 400;
+    const left = window.innerWidth / 2 - width / 2;
+    const top = window.innerHeight / 2 - height / 2;
+    window.open(url + 'https://wrap2024.vercel.app', '_blank');
   }
 }

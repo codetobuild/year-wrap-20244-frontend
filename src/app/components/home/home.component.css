@@ -21,6 +21,9 @@
   color: #6e44ff;
 }
 
+.card-content {
+  font-size: var(--font-lg);
+}
 @media (min-width: 768px) {
   .hero {
     grid-template-columns: max-content;
@@ -85,7 +88,7 @@
 
 .feature {
   text-align: center;
-  padding: var(--space-4);
+  /* padding: var(--space-4); */
 }
 
 .feature-icon {
@@ -158,13 +161,13 @@
 }
 
 .btn-primary {
-  background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
-  color: black;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  color: white;
   font-size: 1.3em;
 }
 
 .btn-primary:hover {
-  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+  background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
 }
 
 .btn-secondary {
@@ -216,8 +219,11 @@
     flex-direction: column;
   }
 
+  .ready_botton_h2 {
+    font-size: var(--font-xl);
+  }
   .btn {
-    width: 100%;
+    /* width: 100%; */
     justify-content: center;
   }
 

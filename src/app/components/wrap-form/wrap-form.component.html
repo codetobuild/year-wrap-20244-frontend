@@ -1,18 +1,10 @@
 <main>
     <div class="page-header">
         <h1>Create Your 2024 Wrap</h1>
-        <p class="subtitle">Capture your best 2024 moments!</p>
+        <p class="subtitle">Capture your 2024 moments!</p>
     </div>
 
     <form #wrapForm="ngForm" (ngSubmit)="onSubmit()" class="wrap-form">
-        <div class="username-section">
-            <input type="text" id="username" [(ngModel)]="temporaryUsername" name="username" #usernameInput="ngModel"
-                placeholder="What should we call you?" class="username-input" required focus>
-            <p class="form_error_message" *ngIf="(usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)) || 
-                       (usernameInput.invalid && wrapForm.submitted)">
-                Name must not be blank
-            </p>
-        </div>
 
         <!-- Categories and Events -->
         <div class="categories-container">
@@ -71,7 +63,7 @@
                 <!-- Add Custom Event Input -->
                 <div class="add-custom-event">
                     <input type="text" [(ngModel)]="newCustomEvent.title" name="newEventTitle"
-                        placeholder="Enter your own life moments" class="custom-event-input">
+                        placeholder="Enter your life moments in short" class="custom-event-input">
                     <button type="button" class="add-event-btn" (click)="addCustomEvent()"
                         [disabled]="!newCustomEvent.title || !newCustomEvent.points">
                         <fa-icon [icon]="faPlus"></fa-icon>
@@ -79,11 +71,20 @@
                 </div>
             </div>
         </div>
+        <div class="username-section">
+            <input type="text" id="username" [(ngModel)]="temporaryUsername" name="username" #usernameInput="ngModel"
+                placeholder="What should we call you?" class="username-input" required focus>
+            <p class="form_error_message" *ngIf="(usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)) || 
+                       (usernameInput.invalid && wrapForm.submitted)">
+                Name must not be blank
+            </p>
+        </div>
+        <div class="points-summary">
+            Total Points: {{ calculateTotalPoints() }}
+        </div>
         <!-- Form Actions -->
         <div class="form-actions">
-            <div class="points-summary">
-                Total Points: {{ calculateTotalPoints() }}
-            </div>
+
             <div class="action-buttons">
                 <button type="button" (click)="resetForm()" class="reset-btn">
                     Reset

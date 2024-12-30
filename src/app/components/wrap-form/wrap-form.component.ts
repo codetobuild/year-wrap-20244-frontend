@@ -157,6 +157,7 @@ export class WrapFormComponent implements OnInit {
         title: this.newCustomEvent.title,
         points: this.newCustomEvent.points,
       });
+      this.confettiService.triggerQuickBurst();
       // Reset input
       this.newCustomEvent = { title: '', points: 1 };
     }

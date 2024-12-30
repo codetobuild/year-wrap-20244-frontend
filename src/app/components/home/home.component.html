@@ -96,9 +96,15 @@
     <section class="social-proof">
         <h2 class="section-title">Share Your Journey</h2>
         <div class="social-icons">
-            <fa-icon [icon]="faTwitter" class="social-icon twitter"></fa-icon>
-            <fa-icon [icon]="faFacebook" class="social-icon facebook"></fa-icon>
+            <fa-icon [icon]="faTwitter" class="social-icon twitter"
+                (click)="shareOnSocial('https://twitter.com/share?url=')"></fa-icon>
+            <fa-icon [icon]="faFacebook" class="social-icon facebook"
+                (click)="shareOnSocial('https://www.facebook.com/sharer/sharer.php?u=')"></fa-icon>
             <fa-icon [icon]="faInstagram" class="social-icon instagram"></fa-icon>
+            <!-- LinkedIn -->
+            <fa-icon [icon]="faLinkedin" class="social-icon linkedin"
+                (click)="shareOnSocial('https://www.linkedin.com/sharing/share-offsite/?url=')">
+            </fa-icon>
         </div>
     </section>
 </main>
