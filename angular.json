@@ -14,8 +14,6 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/year-wrap-2024-frontend",
-            "host": "0.0.0.0",
-            "port": 4200,
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
