@@ -6,7 +6,7 @@
 
         <div class="search-box">
             <div class="search-box-border">
-                <input type="text" [formControl]="searchControl" placeholder="Enter share code (e.g., ABC123)"
+                <input type="text" [formControl]="searchControl" placeholder="Enter code(e.g., ABC123)"
                     class="search-input">
                 <button class="search-button" (click)="searchWrap()" [disabled]="!searchControl.value">
                     <fa-icon [icon]="icons.faSearch"></fa-icon>
@@ -36,7 +36,7 @@
     </div>
 
     <!-- Wrap Display -->
-    <div *ngIf="submission" class="wrap-display">
+    <div *ngIf="!submission" class="wrap-display">
         <div class="wrap-header">
             <button class="close-button" (click)="clearSubmission()">
                 <fa-icon [icon]="icons.faTimes"></fa-icon>

@@ -27,7 +27,6 @@
                                     (change)="toggleEvent(event, $event)">
                                 <div class="event-details">
                                     <span class="event-title">{{ event.title }}</span>
-
                                 </div>
                             </label>
                         </div>
@@ -52,8 +51,7 @@
                         <div class="event-details">
                             <span class="event-title">{{ event.title }}</span>
                         </div>
-                        <!-- <span class="custom-event-title">{{ event.title }}</span>
-                        <span class="custom-event-points">+{{ event.points }} points</span> -->
+                        <!-- <span class="custom-event-title">{{ event.title }}</span> -->
                         <button type="button" class="remove-event-btn" (click)="removeCustomEvent(event.id)">
                             <fa-icon [icon]="faTrash"></fa-icon>
                         </button>
@@ -71,6 +69,7 @@
                 </div>
             </div>
         </div>
+
         <div class="username-section">
             <input type="text" id="username" [(ngModel)]="temporaryUsername" name="username" #usernameInput="ngModel"
                 placeholder="What should we call you?" class="username-input" required focus>

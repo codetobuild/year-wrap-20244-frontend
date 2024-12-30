@@ -226,7 +226,9 @@
     /* width: 100%; */
     justify-content: center;
   }
-
+  .features {
+    padding: 0;
+  }
   .features-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
@@ -306,4 +308,13 @@
     rgba(255, 255, 255, 0.9) 10%,
     rgba(255, 255, 255, 0) 100%
   );
+}
+
+@media (max-width: 350px) {
+  .btn-primary {
+    font-size: var(--font-base);
+  }
+  .btn-secondary {
+    font-size: var(--font-base);
+  }
 }
