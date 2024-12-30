@@ -36,7 +36,7 @@
     </div>
 
     <!-- Wrap Display -->
-    <div *ngIf="!submission" class="wrap-display">
+    <div *ngIf="submission" class="wrap-display">
         <div class="wrap-header">
             <button class="close-button" (click)="clearSubmission()">
                 <fa-icon [icon]="icons.faTimes"></fa-icon>
