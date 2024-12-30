@@ -88,12 +88,13 @@ search-box-border:focus-within {
 
 .close-button {
   position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
+  top: var(--space-1);
+  right: var(--space-1);
   padding: var(--space-2);
   background: transparent;
   border: none;
   color: var(--text-secondary);
+  font-size: var(--font-3xl);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -215,7 +216,21 @@ search-box-border:focus-within {
   font-size: 1.6rem;
   padding-right: 5px;
 }
+.wrap-header {
+  position: relative;
+}
 
+.stats-card {
+  padding: var(--space-6);
+  background-color: var(--primary-100);
+  border-radius: 10px;
+}
+.stat-value {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  padding-right: 5px;
+  color: #6e44ff;
+}
 @media (max-width: 768px) {
   .search-box {
     flex-direction: column;
@@ -240,6 +255,9 @@ search-box-border:focus-within {
     padding: var(--space-1);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
+  }
+  .stats-card {
+    /* padding: var(--space-1) 0; */
   }
 
   .events-container {
