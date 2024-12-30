@@ -231,6 +231,11 @@ search-box-border:focus-within {
   padding-right: 5px;
   color: #6e44ff;
 }
+.wrap-name {
+  color: #6e44ff;
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
 @media (max-width: 768px) {
   .search-box {
     flex-direction: column;
