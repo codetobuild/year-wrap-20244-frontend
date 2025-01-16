@@ -1,59 +1,99 @@
-# YearWrap2024Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+# Year Wrap 2024 Frontend
 
-## Development server
+This is the frontend application for the Year Wrap 2024 project. It allows users to capture and share their 2024 journey through a beautiful wrap.
 
-To start a local development server, run:
+## Live Application
 
-```bash
-ng serve
+You can access the live application [https://wrap2024.vercel.app](https://wrap2024.vercel.app/)
+
+---
+
+## Project Structure
+
+```plaintext
+src/
+  app/
+    components/
+    interceptors/
+    models/
+    services/
+  environments/
+index.html
+main.ts
+styles.css
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Prerequisites
 
-```bash
-ng generate component component-name
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/codetobuild/year-wrap-20244-frontend
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd year-wrap-20244-frontend
+   ```
+3. Install the dependencies:
+   ```sh
+   npm install
+   ```
+
+---
+
+### Running the Application
+
+To start the development server, run:
+```sh
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The application will be available at [http://localhost:4200](http://localhost:4200).
 
-```bash
-ng generate --help
+---
+
+### Building the Application
+
+To build the application for production, run:
+```sh
+npm run build
 ```
 
-## Building
+The build artifacts will be stored in the `dist` directory.
 
-To build the project run:
+---
 
-```bash
-ng build
+### Running Tests
+
+To execute the unit tests, run:
+```sh
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Contributing
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Contributions are welcome! Please follow these steps:
 
-```bash
-ng test
-```
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
+   ```sh
+   git checkout -b feature-name
+   ```
+3. Commit your changes and push the branch:
+   ```sh
+   git push origin feature-name
+   ```
+4. Open a pull request.
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
